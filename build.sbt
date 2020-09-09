@@ -17,14 +17,15 @@ val akkaVersion = "2.5.12"
 libraryDependencies ++=
   Seq(
 
-    "ch.qos.logback" % "logback-classic" % "1.1.7",
     "com.typesafe" % "config" % "1.4.0",
+    "ch.qos.logback" % "logback-classic" % "1.1.11",
+
     "com.typesafe.scala-logging" %% "scala-logging" % "3.5.0",
 
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream-kafka" % "0.20",
-    "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "0.19",
+    "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "0.20",
 
     "tech.navicore" %% "navipath" % "0.2.0",
 
