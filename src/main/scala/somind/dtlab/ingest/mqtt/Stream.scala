@@ -12,11 +12,11 @@ import scala.collection.immutable.Map
 import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.language.implicitConversions
+import navicore.data.navipath.dsl.NaviPathSyntax._
 
 object Stream extends LazyLogging {
 
   def getKey(text: String): String = {
-    import onextent.data.navipath.dsl.NaviPathSyntax._
     text
       .query[String]("$.DevAddr")
       .getOrElse(text.hashCode().toString)
