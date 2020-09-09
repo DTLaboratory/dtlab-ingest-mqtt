@@ -24,7 +24,8 @@ libraryDependencies ++=
 
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
-    "com.typesafe.akka" %% "akka-stream-kafka" % "0.20",
+    "com.typesafe.akka" %% "akka-stream-kafka" % "0.22",
+
     "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "0.20",
 
     "tech.navicore" %% "navipath" % "0.2.0",
