@@ -12,22 +12,24 @@ parallelExecution in test := false
 version := "1.0"
 
 scalaVersion := "2.12.6"
-val akkaVersion = "2.5.12"
+val akkaVersion = "2.5.31"
 
 libraryDependencies ++=
   Seq(
 
-    "ch.qos.logback" % "logback-classic" % "1.1.7",
-    "com.typesafe" % "config" % "1.2.1",
-    "com.typesafe.scala-logging" %% "scala-logging" % "3.5.0",
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
+
+    "com.typesafe" % "config" % "1.4.0",
+    "ch.qos.logback" % "logback-classic" % "1.1.11",
 
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
-    "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "0.19",
 
-    "tech.navicore" %% "navipath" % "0.2.0",
+    "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "0.20",
 
-    "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+    "tech.navicore" %% "navipath" % "4.0.2",
+
+    "org.scalatest" %% "scalatest" % "3.0.9" % "test"
 
   )
 
