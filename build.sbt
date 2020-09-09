@@ -28,7 +28,7 @@ libraryDependencies ++=
 
     "tech.navicore" %% "navipath" % "0.2.0",
 
-    "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+    "org.scalatest" %% "scalatest" % "3.0.9" % "test"
 
   )
 
