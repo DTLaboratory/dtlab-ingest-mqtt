@@ -1,4 +1,4 @@
-package onextent.iot.mqtt.kafka
+package somind.dtlab.ingest.mqtt
 
 import java.util.concurrent.CompletionStage
 
@@ -12,7 +12,7 @@ import akka.stream.alpakka.mqtt.scaladsl.{MqttCommittableMessage, MqttSource}
 import akka.stream.scaladsl.{Flow, Source}
 import akka.{Done, NotUsed}
 import com.typesafe.scalalogging.LazyLogging
-import onextent.iot.mqtt.kafka.Conf._
+import Conf._
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.serialization.{ByteArraySerializer, StringSerializer}
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence
@@ -30,7 +30,7 @@ object Stream extends LazyLogging {
       .getOrElse(text.hashCode().toString)
   }
 
-  val mqttConsumerettings = MqttSourceSettings(
+  val mqttConsumerettings: MqttSourceSettings = MqttSourceSettings(
     MqttConnectionSettings(
       mqttUrl,
       mqttClientId,

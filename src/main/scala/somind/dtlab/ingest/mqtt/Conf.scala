@@ -1,4 +1,4 @@
-package onextent.iot.mqtt.kafka
+package somind.dtlab.ingest.mqtt
 
 import akka.actor.ActorSystem
 import akka.stream._

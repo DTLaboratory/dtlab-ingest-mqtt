@@ -1,4 +1,4 @@
-name := "MqttKafka"
+name := "DtLabIngestMqtt"
 
 fork := true
 javaOptions in test ++= Seq(
@@ -33,7 +33,7 @@ libraryDependencies ++=
   )
 
 mainClass in assembly := Some("onextent.iot.mqtt.kafka.Main")
-assemblyJarName in assembly := "MqttKafka.jar"
+assemblyJarName in assembly := "DtLabIngestMqtt.jar"
 
 assemblyMergeStrategy in assembly := {
   case PathList("reference.conf") => MergeStrategy.concat

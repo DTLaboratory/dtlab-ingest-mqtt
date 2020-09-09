@@ -1,4 +1,4 @@
-package onextent.iot.mqtt.kafka
+package somind.dtlab.ingest.mqtt
 
 import org.scalatest._
 
