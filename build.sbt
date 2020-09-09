@@ -23,7 +23,6 @@ libraryDependencies ++=
 
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
-    "com.typesafe.akka" %% "akka-stream-kafka" % "0.20",
     "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "0.19",
 
     "tech.navicore" %% "navipath" % "0.2.0",
@@ -32,7 +31,7 @@ libraryDependencies ++=
 
   )
 
-mainClass in assembly := Some("onextent.iot.mqtt.kafka.Main")
+mainClass in assembly := Some("somind.dtlab.ingest.mqtt.Main")
 assemblyJarName in assembly := "DtLabIngestMqtt.jar"
 
 assemblyMergeStrategy in assembly := {
