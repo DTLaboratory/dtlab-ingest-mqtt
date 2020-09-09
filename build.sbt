@@ -28,7 +28,7 @@ libraryDependencies ++=
 
     "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "0.20",
 
-    "tech.navicore" %% "navipath" % "0.2.0",
+    "tech.navicore" %% "navipath" % "4.0.2",
 
     "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 
