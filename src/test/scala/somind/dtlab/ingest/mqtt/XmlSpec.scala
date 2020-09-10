@@ -3,8 +3,9 @@ package somind.dtlab.ingest.mqtt
 import org.scalatest._
 
 import scala.collection.mutable
+import org.scalatest.flatspec.AnyFlatSpec
 
-class XmlSpec extends FlatSpec {
+class XmlSpec extends AnyFlatSpec {
 
   "A Stack" should "pop values in last-in-first-out order" in {
     //noinspection ScalaDeprecation
