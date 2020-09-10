@@ -12,7 +12,7 @@ parallelExecution in test := false
 version := "1.0"
 
 scalaVersion := "2.12.6"
-val akkaVersion = "2.5.31"
+val akkaVersion = "2.6.9"
 
 libraryDependencies ++=
   Seq(
