@@ -24,7 +24,7 @@ libraryDependencies ++=
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
     "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "0.20",
-    "org.scalatest" %% "scalatest" % "3.0.9" % "test"
+    "org.scalatest" %% "scalatest" % "3.2.2" % "test"
 
   )
 
