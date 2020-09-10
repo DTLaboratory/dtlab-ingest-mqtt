@@ -20,7 +20,7 @@ libraryDependencies ++=
     "tech.navicore" %% "navipath" % "4.0.2",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
     "com.typesafe" % "config" % "1.4.0",
-    "ch.qos.logback" % "logback-classic" % "1.1.11",
+    "ch.qos.logback" % "logback-classic" % "1.2.3",
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
     "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "0.20",
