@@ -2,17 +2,17 @@ package somind.dtlab.ingest.mqtt
 
 import akka.Done
 import akka.stream.alpakka.mqtt._
-import akka.stream.alpakka.mqtt.scaladsl.{MqttCommittableMessage, MqttSource}
+import akka.stream.alpakka.mqtt.scaladsl._
 import akka.stream.scaladsl.{Sink, Source}
 import com.typesafe.scalalogging.LazyLogging
+import javax.net.ssl.SSLContext
+import navicore.data.navipath.dsl.NaviPathSyntax._
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence
 import somind.dtlab.ingest.mqtt.Conf._
 
-import scala.collection.immutable.Map
 import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.language.implicitConversions
-import navicore.data.navipath.dsl.NaviPathSyntax._
 
 object Stream extends LazyLogging {
 
@@ -22,31 +22,36 @@ object Stream extends LazyLogging {
       .getOrElse(text.hashCode().toString)
   }
 
-  val mqttConsumerettings: MqttSourceSettings = MqttSourceSettings(
+  val connectionSettings: MqttConnectionSettings =
     MqttConnectionSettings(
       mqttUrl,
       mqttClientId,
       new MemoryPersistence
     ).withAuth(mqttUser, mqttPwd)
       .withAutomaticReconnect(true)
-      .withKeepAliveInterval(15, SECONDS),
-    Map(mqttTopic -> MqttQoS.AtLeastOnce)
-  )
+      .withKeepAliveInterval(15 seconds)
+      .withSocketFactory(SSLContext.getDefault.getSocketFactory)
 
-  // todo: make sure this runs forever ejs
-  // todo: make sure this runs forever ejs
-  // todo: make sure this runs forever ejs
-  // todo: make sure this runs forever ejs
-  def apply(): Unit = {
+  def apply(): Future[Done] = {
 
-    val mqttSource: Source[MqttCommittableMessage, Future[Done]] =
-      MqttSource.atLeastOnce(mqttConsumerettings, bufferSize = 8)
+    val mqttSource: Source[MqttMessageWithAck, Future[Done]] =
+      MqttSource.atLeastOnce(
+        connectionSettings
+          .withClientId(clientId = mqttClientId)
+          .withCleanSession(false),
+        MqttSubscriptions(mqttTopic, MqttQoS.AtLeastOnce),
+        bufferSize = 8
+      )
 
     mqttSource
       .runWith(Sink.foreach(msg => {
 
-        // todo: write to dtlab ingest
-        msg.messageArrivedComplete()
+        // todo: write to dtlab ingest in a flow using via
+        // todo: write to dtlab ingest in a flow using via
+        // todo: write to dtlab ingest in a flow using via
+        msg.ack()
+
+        println(msg.message.payload.toString())
 
       }))
 

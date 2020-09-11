@@ -11,7 +11,7 @@ parallelExecution in test := false
 
 version := "1.0"
 
-scalaVersion := "2.12.6"
+scalaVersion := "2.12.12"
 val akkaVersion = "2.6.9"
 
 libraryDependencies ++=
@@ -23,7 +23,7 @@ libraryDependencies ++=
     "ch.qos.logback" % "logback-classic" % "1.2.3",
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
-    "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "0.20",
+    "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "2.0.1",
     "org.scalatest" %% "scalatest" % "3.2.2" % "test"
 
   )
