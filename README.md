@@ -1,5 +1,4 @@
-DtLab MQTT Ingest
-====
+# DtLab MQTT Ingest
 
 ## UNDER CONSTRUCTION
 
