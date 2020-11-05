@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory
 import scala.sys.env
 
 /**
-  * If you have java a lib dep like eclipse.paho that you want to see logging
+  * If you have a java lib dep like eclipse.paho that you want to see logging
   * from, it sucks to be you.
   *
   * You must init the java.util.logging subsystem with jul-to-slf4j to get
