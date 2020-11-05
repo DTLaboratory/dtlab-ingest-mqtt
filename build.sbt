@@ -14,7 +14,7 @@ scalacOptions += "-Ypartial-unification"
 version := "1.0"
 
 scalaVersion := "2.12.8"
-val akkaVersion = "2.5.21"
+val akkaVersion = "2.5.32"
 
 libraryDependencies ++=
   Seq(
