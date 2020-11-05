@@ -12,15 +12,12 @@ import scala.concurrent.Future
 
 object Main extends App with LazyLogging {
 
-  val sslContext = SslContextUtil()
-
   val connectionSettings = MqttConnectionSettings(
     mqttUrl,
     mqttClientId,
     new MemoryPersistence
   ).withAutomaticReconnect(true)
-    .withServerUri(mqttUrl)
-    .withSocketFactory(sslContext.getSocketFactory)
+    .withSocketFactory(SslContextUtil().getSocketFactory)
     .withCleanSession(false)
 
   logger.debug(s"connection settings:\n$connectionSettings")
