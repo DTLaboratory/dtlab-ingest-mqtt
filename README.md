@@ -5,14 +5,14 @@
 Listen for data on an MQTT topic and post each message to a remote HTTP service (probably a dtlab-ingest instance).
 
 ```console
-sbt assembly && MQTT_URL=ssl://YOUR_HOST:8883 MQTT_TOPIC=test/c/ MQTT_CLIENT_ID=YOUR_CLIENT_ID MQTT_USER=YOUR_USER MQTT_PWD=YOUR_PWD java -jar target/scala-2.12/DtLabMqttIngest.jar
+DTLAB_INGEST_URL=http://localhost/dtlab/ingest:8080 MQTT_URL=ssl://some.iot-server.io:12345 KEYSTORE_PASSWORD=your-password KEYSTORE_PATH=/Users/your/secrets/client.jks sbt run
 ```
 
 ### Build and run
 
 ```console
 sbt assembly
-java -jar target/scala-2.12/MqttToKafka.jar
+java -jar target/scala-2.12/DtlabIngestMqtt.jar
 ```
 
 ### Test and Code Coverage
