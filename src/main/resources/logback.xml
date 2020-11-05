@@ -6,11 +6,11 @@
         </encoder>
     </appender>
 
-    <root level="${SYS_LOG_LEVEL:-warn}">
+    <root level="${SYS_LOG_LEVEL:-error}">
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <logger name="somind" level="${LOG_LEVEL:-debug}"/>
+    <logger name="somind" level="${LOG_LEVEL:-info}"/>
 
 </configuration>
 

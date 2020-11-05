@@ -1,3 +1,5 @@
+.bsp/
+runme*sh
 target/
 project/target/
 project/project/
