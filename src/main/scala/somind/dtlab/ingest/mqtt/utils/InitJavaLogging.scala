@@ -1,4 +1,4 @@
-package somind.dtlab.ingest.mqtt
+package somind.dtlab.ingest.mqtt.utils
 
 import java.util.logging.Level
 
@@ -8,16 +8,16 @@ import org.slf4j.LoggerFactory
 import scala.sys.env
 
 /**
-  * If you have a java lib dep like eclipse.paho that you want to see logging
-  * from, it sucks to be you.
-  *
-  * You must init the java.util.logging subsystem with jul-to-slf4j to get
-  * Logback and LazyLogging to all play together :(
-  *
-  * dependent on build.sbt libs
-  *  "ch.qos.logback" % "logback-classic" % "?.?.?",
-  *  "org.slf4j" % "jul-to-slf4j" % "?.?.?",
-  */
+ * If you have a java lib dep like eclipse.paho that you want to see logging
+ * from, it sucks to be you.
+ *
+ * You must init the java.util.logging subsystem with jul-to-slf4j to get
+ * Logback and LazyLogging to all play together :(
+ *
+ * dependent on build.sbt libs
+ * "ch.qos.logback" % "logback-classic" % "?.?.?",
+ * "org.slf4j" % "jul-to-slf4j" % "?.?.?",
+ */
 object InitJavaLogging extends LazyLogging {
 
   def apply(): Unit = {
@@ -34,8 +34,8 @@ object InitJavaLogging extends LazyLogging {
     def canInstallBridgeHandler = {
       try {
         Class.forName("org.slf4j.impl.JDK14LoggerFactory",
-                      false,
-                      this.getClass.getClassLoader)
+          false,
+          this.getClass.getClassLoader)
         LoggerFactory
           .getLogger(this.getClass)
           .warn("Detected [org.slf4j.impl.JDK14LoggerFactory] on classpath. " +
@@ -51,7 +51,7 @@ object InitJavaLogging extends LazyLogging {
       case "debug" => Level.FINER
       case "trace" => Level.FINEST
       case "error" => Level.WARNING
-      case _       => Level.INFO
+      case _ => Level.INFO
     }
 
     if (canInstallBridgeHandler) {
