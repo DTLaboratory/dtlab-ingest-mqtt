@@ -41,16 +41,15 @@ object MqttSourceWebhookSinkStream extends LazyLogging {
     src
       .runWith(akka.stream.scaladsl.Sink.foreach(m => {
         try {
-
           Observer("mqtt_message_processing_by_sink")
           val payload = m.message.payload.map(_.toChar).mkString
           logger.debug(payload)
           import scala.concurrent.duration._
           val f = PostString(payload)
-          Await.result(f, 10.seconds) match {
+          Await.result(f, webhookTimeoutSeconds) match {
             case r if r.status == StatusCodes.Accepted =>
               m.ack()
-              Observer("mqtt_message_processed_by_sink")
+              Observer("mqtt_message_processed_by_sink_fitness")
             case badResponse =>
               m.ack() // todo: decide if this is a data issue - if data issue, log and ack - else log and crash
               val emsg = "mqtt_message_NOT_processed_by_sink"

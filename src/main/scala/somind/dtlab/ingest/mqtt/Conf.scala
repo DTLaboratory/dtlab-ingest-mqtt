@@ -9,7 +9,6 @@ import somind.dtlab.ingest.mqtt.observe.Observer
 import somind.dtlab.ingest.mqtt.utils.InitJavaLogging
 
 import scala.concurrent.ExecutionContextExecutor
-import scala.concurrent.duration.{Duration, FiniteDuration}
 
 object Conf extends LazyLogging {
 
@@ -28,6 +27,9 @@ object Conf extends LazyLogging {
   val keyStorePassword: String = conf.getString("main.keyStorePassword")
   val keyStorePath: String = conf.getString("main.keyStorePath")
   val dtlabIngestUri: String = conf.getString("main.dtlabIngestUri")
+  import scala.concurrent.duration._
+  val webhookTimeoutSeconds: Duration =
+    conf.getInt("main.webhookTimeoutSeconds").seconds
 
   val telemetryContentType: ContentType.NonBinary =
     conf.getString("main.telemetryContentType") match {
