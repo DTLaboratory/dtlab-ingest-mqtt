@@ -11,7 +11,7 @@ import somind.dtlab.ingest.mqtt.Conf._
 import somind.dtlab.ingest.mqtt.observe.Observer
 import somind.dtlab.ingest.mqtt.utils.{PostString, SslContextUtil}
 
-import scala.concurrent.{Await, Future, TimeoutException}
+import scala.concurrent.Future
 
 object MqttSourceWebhookSinkStream extends LazyLogging {
 
@@ -40,36 +40,24 @@ object MqttSourceWebhookSinkStream extends LazyLogging {
 
     src
       .runWith(akka.stream.scaladsl.Sink.foreach(m => {
-        try {
-          Observer("mqtt_message_processing_by_sink")
-          val payload = m.message.payload.map(_.toChar).mkString
-          logger.debug(payload)
-          import scala.concurrent.duration._
-          val f = PostString(payload)
-          Await.result(f, webhookTimeoutSeconds) match {
-            case r if r.status == StatusCodes.Accepted =>
-              m.ack()
-              Observer("mqtt_message_processed_by_sink_fitness")
-            case badResponse =>
-              m.ack() // todo: decide if this is a data issue - if data issue, log and ack - else log and crash
-              val emsg = "mqtt_message_NOT_processed_by_sink"
-              logger.error(
-                s"$emsg: ${badResponse.status} ${badResponse.entity}")
-              Observer(emsg)
-          }
-        } catch {
-          case e: TimeoutException =>
-            logger.error(
-              s"remote dtlab ingest system is timing out: ${e.getMessage}")
-            System.exit(1)
-          case e: Throwable =>
-            logger.error(s"fatal unexpected error", e)
-            System.exit(1)
-        }
-      }))
 
-    // todo: explicitly exit on failures - let orchestrator restart pod
-    // todo: manage clientIds for QOS on restart
+        Observer("mqtt_message_processing_by_sink")
+        val payload = m.message.payload.map(_.toChar).mkString
+        logger.debug(payload)
+        PostString(payload) match {
+          case Some(code) if code == StatusCodes.Accepted =>
+            m.ack()
+            Observer("mqtt_message_processed_by_sink_fitness")
+          case code =>
+            m.ack() // todo: decide if this is a data issue - if data issue, log and ack - else log and crash
+            val emsg = "mqtt_message_NOT_processed_by_sink"
+            logger.error(s"$emsg: $code")
+            Observer(emsg)
+        }
+        // todo: explicitly exit on failures - let orchestrator restart pod
+        // todo: manage clientIds for QOS on restart
+
+      }))
   }
 
 }
