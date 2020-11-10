@@ -54,8 +54,6 @@ object MqttSourceWebhookSinkStream extends LazyLogging {
             logger.error(s"$emsg: $code")
             Observer(emsg)
         }
-        // todo: explicitly exit on failures - let orchestrator restart pod
-        // todo: manage clientIds for QOS on restart
 
       }))
   }
