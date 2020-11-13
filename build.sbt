@@ -13,8 +13,9 @@ scalacOptions += "-Ypartial-unification"
 
 version := "1.0"
 
-scalaVersion := "2.12.8"
-val akkaVersion = "2.5.32"
+val akkaHttpVersion = "10.2.1"
+scalaVersion := "2.12.12"
+val akkaVersion = "2.6.10"
 
 libraryDependencies ++=
   Seq(
@@ -26,6 +27,9 @@ libraryDependencies ++=
     "org.typelevel" %% "cats-core" % "2.2.0",
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
+    "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
+    "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
+    "org.json4s" %% "json4s-native" % "3.6.9",
 
     "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "2.0.2",
 

@@ -1,11 +1,11 @@
-package somind.dtlab.ingest.mqtt
+package somind.dtlab.ingest.mqtt.utils
 
 import java.io.FileInputStream
 import java.security.KeyStore
 
 import com.typesafe.scalalogging.LazyLogging
 import javax.net.ssl.{KeyManagerFactory, SSLContext, TrustManagerFactory}
-import Conf._
+import somind.dtlab.ingest.mqtt.Conf.{keyStorePassword, keyStorePath}
 
 object SslContextUtil extends LazyLogging {
 
@@ -13,7 +13,7 @@ object SslContextUtil extends LazyLogging {
 
     val keyStore = KeyStore.getInstance("pkcs12")
     keyStore.load(new FileInputStream(keyStorePath),
-                  keyStorePassword.toCharArray)
+      keyStorePassword.toCharArray)
     val kmf =
       KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm)
     kmf.init(keyStore, keyStorePassword.toCharArray)
