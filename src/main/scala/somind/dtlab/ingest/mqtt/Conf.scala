@@ -26,7 +26,7 @@ object Conf extends LazyLogging {
   val mqttTopic: String = conf.getString("main.mqttTopic")
   val keyStorePassword: String = conf.getString("main.keyStorePassword")
   val keyStorePath: String = conf.getString("main.keyStorePath")
-  val dtlabIngestUri: String = conf.getString("main.dtlabIngestUri")
+  val dtlabIngestUris: List[String] = conf.getString("main.dtlabIngestUris").split(' ').toList
   import scala.concurrent.duration._
   val webhookTimeoutSeconds: Duration =
     conf.getInt("main.webhookTimeoutSeconds").seconds

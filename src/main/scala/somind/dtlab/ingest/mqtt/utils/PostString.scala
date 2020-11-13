@@ -10,21 +10,25 @@ import scala.concurrent.{Await, Future, TimeoutException}
 object PostString extends LazyLogging {
 
   val http: HttpExt = Http(actorSystem)
-  val request: HttpRequest = HttpRequest()
-    .withUri(uri = Uri(dtlabIngestUri))
+  val request: HttpRequest = HttpRequest().withMethod(HttpMethods.POST)
 
   def apply(payload: String): Option[StatusCode] = {
     try {
-      val f = PostString.applyAsync(payload)
-      val r = Await.result(f, webhookTimeoutSeconds)
-      if (!r.status.isSuccess()) {
-        logger.warn(s"post not successful: ${r._3}")
-      }
-      Some(r.status)
+
+      val results = dtlabIngestUris.map(uriString => {
+        val f = PostString.applyAsync(payload, uriString)
+        val r = Await.result(f, webhookTimeoutSeconds)
+        if (!r.status.isSuccess()) {
+          logger.warn(s"post not successful: $r")
+          return None
+        }
+        logger.debug(s"post successful")
+        Some(r.status)
+      })
+      results.last
     } catch {
       case e: TimeoutException =>
-        logger.error(
-          s"remote system is timing out: ${e.getMessage}")
+        logger.error(s"remote system is timing out: ${e.getMessage}")
         System.exit(1)
         None
       case e: Throwable =>
@@ -34,12 +38,14 @@ object PostString extends LazyLogging {
     }
   }
 
-  def applyAsync(telem: String): Future[HttpResponse] = {
+  def applyAsync(telem: String, uriString: String): Future[HttpResponse] = {
 
     val newRequest =
-      request.withEntity(entity = HttpEntity(telemetryContentType, telem))
+      request
+        .withEntity(entity = HttpEntity(telemetryContentType, telem))
+        .withUri(uri = Uri(uriString))
 
-    logger.debug(s"sending request to: " + newRequest)
+    logger.debug(s"posting request to: " + newRequest)
     http.singleRequest(newRequest)
   }
 

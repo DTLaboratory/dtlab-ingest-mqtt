@@ -40,12 +40,13 @@ object MqttSourceWebhookSinkStream extends LazyLogging {
 
     src
       .runWith(akka.stream.scaladsl.Sink.foreach(m => {
-
+        // todo: move to an async flow that can scale horizontally
         Observer("mqtt_message_processing_by_sink")
         val payload = m.message.payload.map(_.toChar).mkString
         logger.debug(payload)
         PostString(payload) match {
-          case Some(code) if code == StatusCodes.Accepted =>
+          case Some(code)
+              if code == StatusCodes.Accepted || code == StatusCodes.OK =>
             m.ack()
             Observer("mqtt_message_processed_by_sink_fitness")
           case code =>
