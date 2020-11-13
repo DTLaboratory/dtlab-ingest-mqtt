@@ -29,7 +29,7 @@ libraryDependencies ++=
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
     "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
     "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
-    "org.json4s" %% "json4s-native" % "3.6.9",
+    "org.json4s" %% "json4s-native" % "3.6.10",
 
     "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "2.0.2",
 
