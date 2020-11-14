@@ -12,6 +12,7 @@ object SslContextUtil extends LazyLogging {
   def apply(): SSLContext = {
 
     val keyStore = KeyStore.getInstance("pkcs12")
+    logger.info(s"loading keystore from $keyStorePath")
     keyStore.load(new FileInputStream(keyStorePath),
       keyStorePassword.toCharArray)
     val kmf =
