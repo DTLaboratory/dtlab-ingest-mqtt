@@ -13,7 +13,7 @@ scalacOptions += "-Ypartial-unification"
 
 version := "1.0"
 
-val akkaHttpVersion = "10.2.1"
+val akkaHttpVersion = "10.2.2"
 scalaVersion := "2.12.12"
 val akkaVersion = "2.6.10"
 
@@ -24,7 +24,7 @@ libraryDependencies ++=
     "ch.qos.logback" % "logback-classic" % "1.2.3",
     "org.slf4j" % "jul-to-slf4j" % "1.7.30",
 
-    "org.typelevel" %% "cats-core" % "2.2.0",
+    "org.typelevel" %% "cats-core" % "2.3.1",
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
     "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
