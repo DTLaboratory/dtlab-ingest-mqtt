@@ -24,7 +24,7 @@ libraryDependencies ++=
     "ch.qos.logback" % "logback-classic" % "1.2.3",
     "org.slf4j" % "jul-to-slf4j" % "1.7.30",
 
-    "org.typelevel" %% "cats-core" % "2.4.1",
+    "org.typelevel" %% "cats-core" % "2.4.2",
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
     "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
