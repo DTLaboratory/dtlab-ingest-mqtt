@@ -14,7 +14,7 @@ scalacOptions += "-Ypartial-unification"
 version := "1.0"
 
 val akkaHttpVersion = "10.2.4"
-scalaVersion := "2.12.13"
+scalaVersion := "2.13.5"
 val akkaVersion = "2.6.13"
 
 libraryDependencies ++=
