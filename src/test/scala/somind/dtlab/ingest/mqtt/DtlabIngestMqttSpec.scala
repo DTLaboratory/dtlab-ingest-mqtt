@@ -1,8 +1,9 @@
 package somind.dtlab.ingest.mqtt
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class DtlabIngestMqttSpec extends FlatSpec with Matchers {
+class DtlabIngestMqttSpec extends AnyFlatSpec with Matchers {
 
   "An obj" should "do something" in {
 

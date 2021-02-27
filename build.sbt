@@ -9,12 +9,10 @@ javaOptions in test ++= Seq(
 
 parallelExecution in test := false
 
-scalacOptions += "-Ypartial-unification"
-
 version := "1.0"
 
 val akkaHttpVersion = "10.2.4"
-scalaVersion := "2.12.13"
+scalaVersion := "2.13.5"
 val akkaVersion = "2.6.13"
 
 libraryDependencies ++=
@@ -33,7 +31,7 @@ libraryDependencies ++=
 
     "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "2.0.2",
 
-    "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+    "org.scalatest" %% "scalatest" % "3.2.5" % "test"
   )
 
 dependencyOverrides ++= Seq(

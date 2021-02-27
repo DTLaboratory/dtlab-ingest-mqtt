@@ -1,8 +1,8 @@
-FROM java:8-alpine
+FROM openjdk:13-alpine
 
 RUN mkdir -p /app
 
-COPY target/scala-2.12/*.jar /app/
+COPY target/scala-2.13/*.jar /app/
 
 WORKDIR /app
 
