@@ -31,7 +31,7 @@ libraryDependencies ++=
 
     "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "2.0.2",
 
-    "org.scalatest" %% "scalatest" % "3.2.7" % "test"
+    "org.scalatest" %% "scalatest" % "3.2.8" % "test"
   )
 
 dependencyOverrides ++= Seq(
