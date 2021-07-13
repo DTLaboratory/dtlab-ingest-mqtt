@@ -1,3 +1,7 @@
+.bloop
+.metals
+metals.sbt
+.scalafmt.conf
 *.log
 *.jsonl
 .bsp/
