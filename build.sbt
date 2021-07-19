@@ -19,7 +19,7 @@ libraryDependencies ++=
   Seq(
     "com.typesafe" % "config" % "1.3.4",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.4",
-    "ch.qos.logback" % "logback-classic" % "1.2.3",
+    "ch.qos.logback" % "logback-classic" % "1.2.4",
     "org.slf4j" % "jul-to-slf4j" % "1.7.31",
 
     "org.typelevel" %% "cats-core" % "2.6.1",
