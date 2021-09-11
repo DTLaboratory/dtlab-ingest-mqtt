@@ -18,10 +18,11 @@ sealed trait Observation {
   def datetime: ZonedDateTime
 }
 
-case class Aggregate(name: String,
-                     value: Double,
-                     datetime: ZonedDateTime = ZonedDateTime.now())
-    extends Observation {
+case class Aggregate(
+    name: String,
+    value: Double,
+    datetime: ZonedDateTime = ZonedDateTime.now()
+) extends Observation {
   override def toString: String =
     s"# TYPE $name count\n" +
       s"# HELP $name The total count.\n" +
@@ -44,12 +45,16 @@ object Observer {
 }
 class Observer extends Actor with LazyLogging {
 
-  def calculateState(agingState: Map[String, Observation],
-                     ob: IncrementState): Map[String, Observation] = {
+  def calculateState(
+      agingState: Map[String, Observation],
+      ob: IncrementState
+  ): Map[String, Observation] = {
 
     if (agingState.contains(ob.name))
-      agingState + (ob.name -> Aggregate(ob.name,
-                                         agingState(ob.name).value + ob.value))
+      agingState + (ob.name -> Aggregate(
+        ob.name,
+        agingState(ob.name).value + ob.value
+      ))
     else
       agingState + (ob.name -> Aggregate(ob.name, ob.value))
   }
@@ -77,7 +82,8 @@ class Observer extends Actor with LazyLogging {
         .filter(_._1.contains("fitness"))
         .values
         .filter(m =>
-          seconds(ZonedDateTime.now, m.datetime) > healthToleranceSeconds)
+          seconds(ZonedDateTime.now, m.datetime) > healthToleranceSeconds
+        )
       if (agingState.nonEmpty) {
         sender() ! Feeble()
       } else {

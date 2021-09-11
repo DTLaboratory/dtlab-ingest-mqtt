@@ -13,8 +13,10 @@ object SslContextUtil extends LazyLogging {
 
     val keyStore = KeyStore.getInstance("pkcs12")
     logger.info(s"loading keystore from $keyStorePath")
-    keyStore.load(new FileInputStream(keyStorePath),
-      keyStorePassword.toCharArray)
+    keyStore.load(
+      new FileInputStream(keyStorePath),
+      keyStorePassword.toCharArray
+    )
     val kmf =
       KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm)
     kmf.init(keyStore, keyStorePassword.toCharArray)
