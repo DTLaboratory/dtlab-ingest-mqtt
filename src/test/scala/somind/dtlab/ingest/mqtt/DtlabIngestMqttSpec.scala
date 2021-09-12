@@ -5,8 +5,6 @@ import org.scalatest.matchers.should.Matchers
 
 class DtlabIngestMqttSpec extends AnyFlatSpec with Matchers {
 
-  "An obj" should "do something" in {
-
-  }
+  "An obj" should "do something" in {}
 
 }

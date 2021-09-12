@@ -30,7 +30,8 @@ object MqttSourceWebhookSinkStream extends LazyLogging {
     val src: Source[MqttMessageWithAck, Future[Done]] =
       MqttSource.atLeastOnce(
         connectionSettings.withClientId(
-          clientId = "somind-mqtt-gateway-" + System.nanoTime().toString),
+          clientId = "somind-mqtt-gateway-" + System.nanoTime().toString
+        ),
         MqttSubscriptions(mqttTopic, MqttQoS.AtLeastOnce),
         bufferSize = 8
       )

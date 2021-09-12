@@ -18,8 +18,11 @@ object ObserverRoute extends LazyLogging with Directives {
         onComplete(m) {
           case Success(observer: Measurements) =>
             complete(
-              HttpEntity(ContentTypes.`text/plain(UTF-8)`,
-                         observer.metrics.mkString("\n") + '\n'))
+              HttpEntity(
+                ContentTypes.`text/plain(UTF-8)`,
+                observer.metrics.mkString("\n") + '\n'
+              )
+            )
           case e =>
             logger.warn(s"can not get measurements: $e")
             complete(StatusCodes.ServiceUnavailable)
