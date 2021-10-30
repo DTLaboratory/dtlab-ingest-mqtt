@@ -43,10 +43,10 @@ assemblyJarName in assembly := "DtlabIngestMqtt.jar"
 assemblyMergeStrategy in assembly := {
   case PathList("reference.conf")                      => MergeStrategy.concat
   case x if x.endsWith("io.netty.versions.properties") => MergeStrategy.first
-  //case PathList("META-INF", _ @ _*) => MergeStrategy.discard
+  // case PathList("META-INF", _ @ _*) => MergeStrategy.discard
   case PathList("META-INF", "MANIFEST.MF")  => MergeStrategy.discard
   case PathList("META-INF", "ECLIPSE_.RSA") => MergeStrategy.discard
   case PathList("META-INF", "ECLIPSE_.SF")  => MergeStrategy.discard
-  //case x if x.endsWith("MANIFEST.MF") => MergeStrategy.last
+  // case x if x.endsWith("MANIFEST.MF") => MergeStrategy.last
   case _ => MergeStrategy.first
 }

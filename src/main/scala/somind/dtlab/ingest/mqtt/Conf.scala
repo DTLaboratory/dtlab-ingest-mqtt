@@ -17,7 +17,7 @@ object Conf extends LazyLogging {
   implicit val actorSystem: ActorSystem = ActorSystem("DtlabIngestMqtt")
   implicit val executionContext: ExecutionContextExecutor =
     actorSystem.dispatcher
-  //implicit val materializer: ActorMaterializer = ActorMaterializer(ActorMaterializerSettings(actorSystem))
+  // implicit val materializer: ActorMaterializer = ActorMaterializer(ActorMaterializerSettings(actorSystem))
 
   val conf: Config = ConfigFactory.load()
   val port: Int = conf.getInt("main.port")
