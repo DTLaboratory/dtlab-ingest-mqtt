@@ -7,5 +7,5 @@ COPY target/scala-2.13/*.jar /app/
 WORKDIR /app
 
 # override CMD from your run command, or k8s yaml, or marathon json, etc...
-CMD java -Xms256m -Xmx512m -jar /app/DtlabIngestMqtt.jar
+CMD java -Dlog4j2.formatMsgNoLookups=true -Xms256m -Xmx512m -jar /app/DtlabIngestMqtt.jar
 
