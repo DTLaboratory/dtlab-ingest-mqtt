@@ -12,8 +12,8 @@ parallelExecution in test := false
 
 version := "1.0"
 
-val akkaHttpVersion = "10.2.7"
-scalaVersion := "2.13.7"
+val akkaHttpVersion = "10.2.8"
+scalaVersion := "2.13.8"
 val akkaVersion = "2.6.18"
 
 libraryDependencies ++=
@@ -21,7 +21,7 @@ libraryDependencies ++=
     "com.typesafe" % "config" % "1.3.4",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.4",
     "ch.qos.logback" % "logback-classic" % "1.2.10",
-    "org.slf4j" % "jul-to-slf4j" % "1.7.32",
+    "org.slf4j" % "jul-to-slf4j" % "1.7.36",
     "org.typelevel" %% "cats-core" % "2.7.0",
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
