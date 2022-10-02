@@ -30,7 +30,7 @@ libraryDependencies ++=
     "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
     "org.json4s" %% "json4s-native" % "4.0.5",
     "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "4.0.0",
-    "org.scalatest" %% "scalatest" % "3.2.13" % "test"
+    "org.scalatest" %% "scalatest" % "3.2.14" % "test"
   )
 
 dependencyOverrides ++= Seq(
