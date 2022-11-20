@@ -21,7 +21,7 @@ libraryDependencies ++=
     "com.typesafe" % "config" % "1.4.2",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
     "org.slf4j" % "jul-to-slf4j" % "2.0.3",
-    "ch.qos.logback" % "logback-classic" % "1.4.4",
+    "ch.qos.logback" % "logback-classic" % "1.4.5",
     "org.slf4j" % "jul-to-slf4j" % "2.0.1",
     "org.typelevel" %% "cats-core" % "2.9.0",
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
