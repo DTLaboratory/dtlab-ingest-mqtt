@@ -12,24 +12,25 @@ parallelExecution in test := false
 
 version := "1.0"
 
-val akkaHttpVersion = "10.2.9"
-scalaVersion := "2.13.8"
-val akkaVersion = "2.6.20"
+val akkaHttpVersion = "10.4.0"
+scalaVersion := "2.13.10"
+val akkaVersion = "2.7.0"
 
 libraryDependencies ++=
   Seq(
     "com.typesafe" % "config" % "1.4.2",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
-    "ch.qos.logback" % "logback-classic" % "1.4.0",
-    "org.slf4j" % "jul-to-slf4j" % "2.0.0",
-    "org.typelevel" %% "cats-core" % "2.8.0",
+    "org.slf4j" % "jul-to-slf4j" % "2.0.6",
+    "ch.qos.logback" % "logback-classic" % "1.4.5",
+    "org.slf4j" % "jul-to-slf4j" % "2.0.6",
+    "org.typelevel" %% "cats-core" % "2.9.0",
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
     "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
     "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
-    "org.json4s" %% "json4s-native" % "4.0.5",
-    "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "3.0.4",
-    "org.scalatest" %% "scalatest" % "3.2.13" % "test"
+    "org.json4s" %% "json4s-native" % "4.0.6",
+    "com.lightbend.akka" %% "akka-stream-alpakka-mqtt" % "5.0.0",
+    "org.scalatest" %% "scalatest" % "3.2.15" % "test"
   )
 
 dependencyOverrides ++= Seq(
