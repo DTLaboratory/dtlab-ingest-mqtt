@@ -14,7 +14,7 @@ version := "1.0"
 
 val akkaHttpVersion = "10.5.2"
 scalaVersion := "2.13.10"
-val akkaVersion = "2.8.2"
+val akkaVersion = "2.8.4"
 
 libraryDependencies ++=
   Seq(
