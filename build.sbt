@@ -12,7 +12,7 @@ parallelExecution in test := false
 
 version := "1.0"
 
-val akkaHttpVersion = "10.5.2"
+val akkaHttpVersion = "10.5.3"
 scalaVersion := "2.13.12"
 val akkaVersion = "2.8.5"
 
