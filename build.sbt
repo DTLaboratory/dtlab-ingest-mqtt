@@ -18,7 +18,7 @@ val akkaVersion = "2.8.5"
 
 libraryDependencies ++=
   Seq(
-    "com.typesafe" % "config" % "1.4.2",
+    "com.typesafe" % "config" % "1.4.3",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
     "org.slf4j" % "jul-to-slf4j" % "2.0.9",
     "ch.qos.logback" % "logback-classic" % "1.4.11",
