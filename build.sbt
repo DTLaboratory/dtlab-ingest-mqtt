@@ -20,9 +20,9 @@ libraryDependencies ++=
   Seq(
     "com.typesafe" % "config" % "1.4.3",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
-    "org.slf4j" % "jul-to-slf4j" % "2.0.11",
+    "org.slf4j" % "jul-to-slf4j" % "2.0.12",
     "ch.qos.logback" % "logback-classic" % "1.4.14",
-    "org.slf4j" % "jul-to-slf4j" % "2.0.11",
+    "org.slf4j" % "jul-to-slf4j" % "2.0.12",
     "org.typelevel" %% "cats-core" % "2.10.0",
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
